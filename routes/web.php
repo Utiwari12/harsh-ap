@@ -22,13 +22,15 @@ Route::get('/admin-login', [UserController::class, 'adminLogin']);
 //Route::redirect('/home', '/');
 
 //short method
-Route::view('/home', 'home');
+//Route::view('/home', 'home');
 //Route::view('/home', 'welcome');
 
 // Route::get('/about/{name}', function ($name) {
 //     //echo "My name is " . $name. "<br>";
 //     return view('about', ['name' => $name]);
 // });
+
+Route::get('/home', [UserController::class, 'userHome']);
 
 Route::get('/about', function (){
     return view('about');
