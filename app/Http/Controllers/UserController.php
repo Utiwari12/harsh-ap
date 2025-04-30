@@ -35,4 +35,8 @@ class UserController extends Controller
         $users = ['upendra', 'nilam', 'shubham'];
         return view('home', ['name' => $name, 'users' => $users]);
     }
+
+    function userAbout(){
+        return view('about');
+    }
 }
