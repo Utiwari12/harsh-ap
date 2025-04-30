@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class UserController extends Controller
 {
@@ -21,6 +22,11 @@ class UserController extends Controller
     }
 
     function adminLogin(){
-        return view('admin.login'); //admin.login here . is given due to login pafe is in admin folder
+        if(view()->exists('admin.login')){
+            return view('admin.login'); //admin.login here . is given due to login pafe is in admin folder
+        }else{
+           echo "View Page not found";
+        }
+        
     }
 }
