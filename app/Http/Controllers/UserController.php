@@ -42,28 +42,42 @@ class UserController extends Controller
 
     function addUser(Request $request){
         // echo "Add User Page";
-         //return $request;
-        //  echo $request->input('name');
-        //  echo "<br>";
-        //  echo $request->input('email');
-        //  echo "<br>";
-        //  return $request->input('city');
+        $request->validate([
+            'name' => 'required | min:3 | max:30',
+            'email' => 'required|email',
+            'city' => 'required |uppercase',
+            // 'city' => 'required |max:20',
+            'age' => 'required',
+            'gender' => 'required',
+            'skill' => 'required'
+        ],[
+            'name.required' => 'User Name cannot be empty',
+            'name.min'=> 'User Name must be greater than 3 characters',
+            'name.max'=> 'User Name must be less than 30 characters',
+            'email.email' => 'Please Enter Yourvalid Email',
+            'city.required' => 'Please Enter Your City',
+            'age.required' => 'Please Enter Your Age',
+            'gender.required' => 'Please Select Your Gender',
+            'skill.required' => 'Please Select Your Skill'
+        ]);
+         return $request;
+        
         //return view('user-form');
-        // echo "<pre>";
+        //  echo "<pre>";
         // print_r($request->all());
         // echo "</pre>";
-        echo $request->name;
-        echo "<br>";
-        echo $request->email;
-        echo "<br>";
-        echo $request->city;
-        echo "<br>";
-        echo $request->age;
-        echo "<br>";
-        echo $request->gender;
-        echo "<br>";
-        print_r($request->skill) ;
-        echo "<br>";
+        // echo $request->name;
+        // echo "<br>";
+        // echo $request->email;
+        // echo "<br>";
+        // echo $request->city;
+        // echo "<br>";
+        // echo $request->age;
+        // echo "<br>";
+        // echo $request->gender;
+        // echo "<br>";
+        // print_r($request->skill) ;
+        // echo "<br>";
 
     }
 }

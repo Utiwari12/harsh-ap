@@ -1,5 +1,7 @@
 @include('common.header')
 <h1>About</h1>
+
+<h3>{{URL::previous()}}</h3>
 <x-message-banner msg="User Login Successfully" class="success"/>
 <x-message-banner msg="User Logout Successfully" class="error"/>
 

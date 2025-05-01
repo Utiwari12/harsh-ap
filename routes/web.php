@@ -22,7 +22,8 @@ Route::get('/admin-login', [UserController::class, 'adminLogin']);
 //Route::redirect('/home', '/');
 
 //short method
-//Route::view('/home', 'home');
+Route::view('/home', 'home');
+Route::view('/user', 'home');
 //Route::view('/home', 'welcome');
 
 // Route::get('/about/{name}', function ($name) {
@@ -35,3 +36,7 @@ Route::get('/home', [UserController::class, 'userHome']);
 Route::get('/about', function (){
     return view('about');
 });
+
+Route::view('/user-form', 'user-form');
+
+Route::post('adduser', [UserController::class, 'addUser']);
