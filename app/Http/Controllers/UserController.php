@@ -39,4 +39,31 @@ class UserController extends Controller
     function userAbout(){
         return view('about');
     }
+
+    function addUser(Request $request){
+        // echo "Add User Page";
+         //return $request;
+        //  echo $request->input('name');
+        //  echo "<br>";
+        //  echo $request->input('email');
+        //  echo "<br>";
+        //  return $request->input('city');
+        //return view('user-form');
+        // echo "<pre>";
+        // print_r($request->all());
+        // echo "</pre>";
+        echo $request->name;
+        echo "<br>";
+        echo $request->email;
+        echo "<br>";
+        echo $request->city;
+        echo "<br>";
+        echo $request->age;
+        echo "<br>";
+        echo $request->gender;
+        echo "<br>";
+        print_r($request->skill) ;
+        echo "<br>";
+
+    }
 }
