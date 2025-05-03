@@ -51,9 +51,9 @@ Route::post('adduser', [UserController::class, 'addUser']);
 
 
 Route::prefix('student')->group(function(){
-    Route::view('/student/home', 'home');
-    Route::get('/show', [HomeController::class, 'show']);
-    Route::get('/add', [HomeController::class, 'add']);
+     Route::view('/student/home', 'home');
+     Route::get('/show', [HomeController::class, 'show']);
+     Route::get('/add', [HomeController::class, 'add']);
 });
 
 // Route::get('/show', [StudentController::class, 'show']);
@@ -70,3 +70,17 @@ Route::controller(StudentController::class)->group(function(){
     Route::get('/delete', 'delete');
     Route::get('/about/{name}', 'about');
 });
+
+Route::view('/home', 'home')->middleware('check1');
+Route::view('/about', 'about');
+Route::view('/user-form', 'user-form');
+Route::view('/contact', 'contact');
+//Route::view('/home', 'home');
+
+//Group middleware
+// Route::group(['middleware' => ['check1']], function(){
+//     Route::view('/home', 'home');
+//     Route::view('/about', 'about');
+//     Route::view('/user-form', 'user-form');
+//     Route::view('/contact', 'contact');
+// });
