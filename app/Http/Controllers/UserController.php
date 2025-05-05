@@ -3,13 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+
+//To connect with database
+use Illuminate\Support\Facades\DB;
+
 use Illuminate\Support\Facades\View;
 
 class UserController extends Controller
 {
     function getUser(){
-        //return "Hello Upendra Tiwari";
-        return view('user');
+        $response = Http::get('https://jsonplaceholder.typicode.com/users');
+       // return $response->json();
+       //stored in $response variables
+       $response = $response->json();
+       return view('user', ['data'=>$response]);
+        
+        //return "User function Page";
+        //return view('user');
     }
     //create many function just as you want
     function aboutUser(){
@@ -79,5 +90,14 @@ class UserController extends Controller
         // print_r($request->skill) ;
         // echo "<br>";
 
+    }
+
+    //To connect with database
+    function users(){
+        //return "Users function Page";
+        //return DB::select("select * from users");
+        $users = DB::select("select * from users");
+        return View('users', ['users' => $users]);
+        //return view('users');
     }
 }

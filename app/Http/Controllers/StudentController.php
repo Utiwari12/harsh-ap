@@ -20,4 +20,11 @@ class StudentController extends Controller
     function about($name){
         return "About the CIPET student: $name";
     }
+
+    function getStudents(){
+        $students = \App\Models\Student::all();
+        return view('students', ['data' => $students]);
+        //return $students;
+       // return "List of Students or test function";
+    }
 }

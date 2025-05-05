@@ -84,3 +84,8 @@ Route::view('/contact', 'contact');
 //     Route::view('/user-form', 'user-form');
 //     Route::view('/contact', 'contact');
 // });
+
+Route::get('/users', [UserController::class, 'users']);
+
+Route::get('/students', [StudentController::class, 'getStudents']);
+Route::get('/users', [UserController::class, 'getUser']);
