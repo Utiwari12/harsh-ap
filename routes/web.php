@@ -88,4 +88,24 @@ Route::view('/contact', 'contact');
 Route::get('/users', [UserController::class, 'users']);
 
 Route::get('/students', [StudentController::class, 'getStudents']);
-Route::get('/users', [UserController::class, 'getUser']);
+//Route::get('/users', [UserController::class, 'getUser']);
+
+//DB Query Builder
+//Route::get('/queries', [UserController::class, 'queries']);
+//Route::get('/user', [UserController::class, 'queries']);
+
+// Route::get('/user', [UserController::class, 'get']);
+// Route::post('/user', [UserController::class, 'post']);
+// Route::put('/user', [UserController::class, 'put']);
+// Route::delete('/user', [UserController::class, 'delete']);
+
+//Grouping of above routes using 'any' method
+//Route::any('/user', [UserController::class, 'any']);
+
+//matching route group1
+Route::match(['get', 'post'], '/user', [UserController::class, 'group1']);
+
+//matching route group2
+//Route::match(['put', 'delete'], '/user', [UserController::class, 'group2']);
+//to access user form page
+Route::view('/form', 'user');
